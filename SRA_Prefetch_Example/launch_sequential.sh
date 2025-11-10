@@ -47,7 +47,7 @@ AGGREGATE_FILE="${SCRIPTS_DIR}/aggregate_prefetch_wrappers.txt"
     # Run GNU parallel on the aggregated wrapper scripts
 if [[ -s "$AGGREGATE_FILE" ]]; then
     echo "Running GNU Parallel on the aggregated wrapper scripts..."
-    ${PARALLEL} --verbose -j ${CPUS} < ${AGGREGATE_FILE}
+    ${PARALLEL} --citation --verbose -j ${CPUS} < ${AGGREGATE_FILE}
 else
     echo "Warning: Aggregate wrapper file is missing or empty. Nothing to run."
 fi

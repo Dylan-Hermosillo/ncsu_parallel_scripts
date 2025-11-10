@@ -32,7 +32,8 @@ export CHUNK_SIZE=50
 # PART 2 -- GNU Parallel Execution
 # 00 Parallel Tool & Tool to run (Prefetch)
 export PARALLEL="/rs1/shares/brc/admin/tools/parallel-20250922/bin/parallel"
-export PREFETCH="/rs1/shares/brc/admin/containers/modules/sra-tools/3.2.1"
+export PREFETCH_LOAD="/rs1/shares/brc/admin/containers/modules/sra-tools/3.2.1"
+export PREFETCH_RUN="$PREFETCH_LOAD/bin/prefetch"
 # 01 Input/Output directories; for the parallel execution
 export PAR_DIR="$WORKING_DIR/02_SRA_prefetch"
 export PAR_OUT="$PAR_DIR/out"
