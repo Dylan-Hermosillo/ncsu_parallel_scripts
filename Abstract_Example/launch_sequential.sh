@@ -12,6 +12,8 @@ source config.sh
 create_dir $WORKING_DIR
     # some log info
 echo "Starting LSF wrapper generation at $(date)"
+  # get num of jobs
+export NUM_JOB=$(wc -l < "$DATASET_LIST")
 # --- End Housekeeping ---
 
 # --- Create File Structure ---

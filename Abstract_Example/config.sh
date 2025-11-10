@@ -22,7 +22,7 @@ export DATASET_LIST="$WORKING_DIR/dataset_list.txt"
 
 # 03 Mod configurations
 export JOB1_CPUS=6
-export JOB1_QUEUE="shared-memory"
+export JOB1_QUEUE="shared_memory"
 export JOB1_MEMORY="4GB"
 export JOB1_TIME="1:00"
 
@@ -49,7 +49,7 @@ export PAR_DATASET_LIST=
 
 #03 Mod configurations
 export JOB2_CPUS=6
-export JOB2_QUEUE="shared-memory"
+export JOB2_QUEUE="shared_memory"
 export JOB2_MEMORY="4GB"
 export JOB2_TIME="1:00"
 
