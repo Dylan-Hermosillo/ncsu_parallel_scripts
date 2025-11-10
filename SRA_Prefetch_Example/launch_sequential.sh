@@ -47,10 +47,7 @@ AGGREGATE_FILE="${SCRIPTS_DIR}/aggregate_prefetch_wrappers.txt"
     # Run GNU parallel on the aggregated wrapper scripts
 if [[ -s "$AGGREGATE_FILE" ]]; then
     echo "Running GNU Parallel on the aggregated wrapper scripts..."
-    module load ${SRA_PREFETCH}
-    cat ${AGGREGATE_FILE} | ${PARALLEL} -j ${CPUS} -a - \
-        > "${PAR_OUT}/prefetch.task.log" \
-        2> "${PAR_ERR}/prefetch.task.err"
+    ${PARALLEL} --verbose -j ${CPUS} < ${AGGREGATE_FILE}
 else
     echo "Warning: Aggregate wrapper file is missing or empty. Nothing to run."
 fi
