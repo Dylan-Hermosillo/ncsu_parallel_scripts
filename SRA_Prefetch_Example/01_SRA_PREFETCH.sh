@@ -20,11 +20,13 @@ DATA_NAME=$(basename "$DATA_PATH")
 # For example SRA Prefetch:
 if [[ ! -f "$SRA/$DATA_NAME/${DATA_NAME}.sra" ]]; then
     echo "Generating SRA Prefetch wrapper for $DATA_NAME"
+    mkdir -p ${SRA}/${DATA_NAME}
+    chmod 755 ${SRA}/${DATA_NAME}
     
     # Command to run
-    COMMAND0="#!/bin/bash"
+    COMMAND0="#!/bin/bash -l"
     COMMAND1="module load ${PREFETCH_LOAD}"
-    COMMAND2="${PREFETCH_RUN} ${DATA_NAME} --output-directory ${SRA}/${DATA_NAME} > ${SRA_OUT}/${DATA_NAME}_prefetch.log 2> ${SRA_ERR}/${DATA_NAME}_prefetch.err"
+    COMMAND2="prefetch ${DATA_NAME} --output-directory ${SRA} > ${SRA_OUT}/${DATA_NAME}_prefetch.log 2> ${SRA_ERR}/${DATA_NAME}_prefetch.err"
     echo "Running this: $COMMAND"
 
     # Write command to a wrapper file 

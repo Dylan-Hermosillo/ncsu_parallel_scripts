@@ -33,7 +33,7 @@ export CHUNK_SIZE=50
 # 00 Parallel Tool & Tool to run (Prefetch)
 export PARALLEL="/rs1/shares/brc/admin/tools/parallel-20250922/bin/parallel"
 export PREFETCH_LOAD="/rs1/shares/brc/admin/containers/modules/sra-tools/3.2.1"
-export PREFETCH_RUN="$PREFETCH_LOAD/bin/prefetch"
+export PREFETCH_RUN="/rs1/shares/brc/admin/containers/tools/sra-tools/3.2.1/bin/prefetch"
 # 01 Input/Output directories; for the parallel execution
 export PAR_DIR="$WORKING_DIR/02_SRA_prefetch"
 export PAR_OUT="$PAR_DIR/out"
@@ -70,6 +70,7 @@ function create_dir {
         if [[ ! -d "$dir" ]]; then
           echo "$dir does not exist. Directory created"
           mkdir -p $dir
+          chmod 775 $dir
         fi
     done
 }
