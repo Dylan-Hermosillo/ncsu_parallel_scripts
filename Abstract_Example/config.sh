@@ -10,15 +10,15 @@
 export WORKING_DIR="/path/to/working/dir"
 
 # 01 Input/Output directories; for the wrapper generation
-export WRAP_IN="/path/to/input"
-export WRAP_OUT="/path/to/output"
+export WRAP_IN="$WORKING_DIR/01_wrapper_generation/input"
+export WRAP_OUT="$WORKING_DIR/01_wrapper_generation/output"
 export WRAP_LOGS_DIR="$WRAP_OUT/logs"
 export WRAP_OUT="$WRAP_LOGS_DIR/our"
 export WRAP_ERR="$WRAP_LOGS_DIR/err"
-export SCRIPTS_DIR="/path/to/scripts"
+export SCRIPTS_DIR="$WORKING_DIR/01_wrapper_generation/scripts"
 
 # 02 Data
-export DATASET_LIST="$WRAP_/dataset_list.txt"
+export DATASET_LIST="$WORKING_DIR/dataset_list.txt"
 
 # 03 Mod configurations
 export JOB1_CPUS=6
@@ -30,7 +30,7 @@ export JOB1_TIME="1:00"
 export JOB1="get_something_01A"
 export CHUNK_SIZE=50 # number of jobs to run concurrently in lsf
 
-# PART 2 -- Parallel Task Execution
+# Job 2 -- Parallel Task Execution (Placeholder if second congif parameters are needed)
 
 # 00 Parallel Tool
 export PARALLEL="/path/to/gnu/parallel"
