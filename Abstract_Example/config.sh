@@ -32,8 +32,9 @@ export CHUNK_SIZE=50 # number of jobs to run concurrently in lsf
 
 # Job 2 -- Parallel Task Execution (Placeholder if second congif parameters are needed)
 
-# 00 Parallel Tool
+# 00 Parallel Tool & Tool to run
 export PARALLEL="/path/to/gnu/parallel"
+export TOOL="/path/to/tool/to/run"
 
 # 01 Input/Output directories; for the parallel execution
 export PAR_IN="/path/to/parallel/input"

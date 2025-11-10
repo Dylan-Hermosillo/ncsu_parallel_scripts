@@ -9,7 +9,7 @@
     # load config
 source config.sh
     # create working dir -- should already exist but just in case...
-create_dir $WORKING_DIR
+create_dir $WORKING_DIR $SCRIPTS_DIR
     # some log info
 echo "Starting LSF wrapper generation at $(date)"
     # get num of jobs
@@ -43,14 +43,14 @@ bwait -w "done($JOBID1)"
 
     # Parameters for GNU parallel execution
 CPUS=$JOB2_CPUS
-PARALLEL=${PARALLEL}
-AGGREGATE_FILE="${SCRIPTS_DIR}/aggregate_parallel_wrappers.txt"
+AGGREGATE_FILE="${SCRIPTS_DIR}/aggregate_prefetch_wrappers.txt"
     # Run GNU parallel on the aggregated wrapper scripts
 if [[ -s "$AGGREGATE_FILE" ]]; then
     echo "Running GNU Parallel on the aggregated wrapper scripts..."
-    $PARALLEL -j "$CPUS" < "$AGGREGATE_FILE" \
-        > "${PAR_OUT}/parallel.task.log" \
-        2> "${PAR_ERR}/parallel.task.err"
+    module load ${SRA_PREFETCH}
+    cat ${AGGREGATE_FILE} | ${PARALLEL} -j ${CPUS} -a - \
+        > "${PAR_OUT}/prefetch.task.log" \
+        2> "${PAR_ERR}/prefetch.task.err"
 else
     echo "Warning: Aggregate wrapper file is missing or empty. Nothing to run."
 fi

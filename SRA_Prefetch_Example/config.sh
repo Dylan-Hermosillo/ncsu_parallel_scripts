@@ -30,10 +30,11 @@ export JOB1="get_sra prefetch_01A"
 export CHUNK_SIZE=50
 
 # PART 2 -- GNU Parallel Execution
-# 00 Parallel Tool
+# 00 Parallel Tool & Tool to run (Prefetch)
 export PARALLEL="/rs1/shares/brc/admin/tools/parallel-20250922/bin/parallel"
+export PREFETCH="/rs1/shares/brc/admin/containers/modules/sra-tools/3.2.1"
 # 01 Input/Output directories; for the parallel execution
-export PAR_DIR="$WORKING_DIR/02_parallel_execution"
+export PAR_DIR="$WORKING_DIR/02_SRA_prefetch"
 export PAR_OUT="$PAR_DIR/out"
 export PAR_ERR="$PAR_DIR/err"
 

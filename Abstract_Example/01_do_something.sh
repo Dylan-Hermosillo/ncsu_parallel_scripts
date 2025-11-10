@@ -31,13 +31,15 @@ if [[ ! -d "$SRA_OUT_DIR/$DATA_NAME" ]]; then
     echo "Generating SRA Prefetch wrapper for $DATA_NAME"
     
     # Command to run
-    COMMAND="prefetch $DATA_NAME --output-directory $SRA_OUT_DIR"
+    COMMAND1="module load ${TOOL}"
+    COMMAND2="prefetch $DATA_NAME --output-directory $SRA_OUT_DIR"
     echo "Running this: $COMMAND"
 
     # Write command to a wrapper file 
-    echo "Command: $COMMAND" > $SCRIPTS_DIR/${DATA_NAME}_prefetch_wrapper.sh
+    echo "$COMMAND1" > $SCRIPTS_DIR/${DATA_NAME}_prefetch_wrapper.sh
+    echo "$COMMAND2" >> $SCRIPTS_DIR/${DATA_NAME}_prefetch_wrapper.sh
     chmod 755 $SCRIPTS_DIR/${DATA_NAME}_prefetch_wrapper.sh
 
     # Append aggregate list for GNU parallel execution
-    echo "$SCRIPTS_DIR/${DATA_NAME}_prefetch_wrapper.sh" >> $SCRIPTS_DIR/aggregate_prefetch_wrappers.txt
+    echo "$SCRIPTS_DIR/${DATA_NAME}_prefetch_wrapper.sh" >> ${SCRIPTS_DIR}/aggregate_prefetch_wrappers.txt
 fi
