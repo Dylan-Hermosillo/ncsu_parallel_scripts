@@ -46,19 +46,9 @@ export SRA="$WORKING_DIR/02_SRA_prefetch"
 export SRA_OUT="$SRA/out"
 export SRA_ERR="$SRA/err"
 
-: '
-#02  Data
-#export SRA_DATASET_LIST= not needed
+#03 Mod configurations 
+export JOB2_CPUS=6 # num of cpus for parallel execution
 
-#03 Mod configurations
-export JOB2_CPUS=6
-export JOB2_QUEUE="shared_memory"
-export JOB2_MEMORY="4GB"
-export JOB2_TIME="1:00"
-
-#04 Job Parameters
-export JOB2="process_something_02A"
-'
 
 # Some custom functions for our scripts
 #

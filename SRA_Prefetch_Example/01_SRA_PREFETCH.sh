@@ -23,7 +23,6 @@ if [[ ! -f "$SRA/$DATA_NAME/${DATA_NAME}.sra" ]]; then
     
     # Command to run
     COMMAND="bash -l -c \"module load ${PREFETCH}; prefetch ${DATA_NAME} --output-directory ${SRA}/${DATA_NAME} > ${SRA_OUT}/${DATA_NAME}_prefetch.log 2> ${SRA_ERR}/${DATA_NAME}_prefetch.err\""
-    > ${SRA_OUT}/${DATA_NAME}_prefetch.log 2> ${SRA_ERR}/${DATA_NAME}_prefetch.err\""
     echo "Running this: $COMMAND"
 
     # Write command to a wrapper file 
