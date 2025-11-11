@@ -16,15 +16,13 @@ echo "Processing dataset: $DATA_PATH on `date`"
 DATA_NAME=$(basename "$DATA_PATH")
 
 # --- Generate Wrapper ---
-
 # For example SRA Prefetch using Apptainer
 if [[ ! -f "$SRA/$DATA_NAME/${DATA_NAME}.sra" ]]; then
     echo "Generating SRA Prefetch wrapper for $DATA_NAME"
 
     # Wrapper script content
     COMMAND1="mkdir -p ${SRA}/${DATA_NAME}"
-    COMMAND2="${APPT} exec ${SRA_TOOLKIT} prefetch ${DATA_NAME} -O ${SRA} > ${SRA_OUT}/${DATA_NAME}_prefetch.log 2> ${SRA_ERR}/${DATA_NAME}_prefetch.err"
-
+    COMMAND2="${APPT} exec --bind ${SRA}:${SRA} ${SRA_TOOLKIT} prefetch ${DATA_NAME} -O ${SRA} > ${SRA_OUT}/${DATA_NAME}_prefetch.log 2> ${SRA_ERR}/${DATA_N>
     # Write wrapper file
     echo "$COMMAND1" > "${WRAP_SCRIPTS}/${DATA_NAME}_prefetch_wrapper.sh"
     echo "$COMMAND2" >> "${WRAP_SCRIPTS}/${DATA_NAME}_prefetch_wrapper.sh"
